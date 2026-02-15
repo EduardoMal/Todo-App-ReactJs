@@ -1,0 +1,168 @@
+.container {
+  background-color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  height: fit-content;
+
+  border-radius: 1rem;
+  z-index: 4;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.form span {
+  color: #d11212;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.input input,
+.textarea textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: #f0e9e9;
+  padding: 0.1rem;
+}
+
+.input input {
+  height: 1.5rem;
+}
+
+.textarea textarea {
+  height: 4rem;
+}
+
+.input input:focus,
+.textarea textarea:focus {
+  outline: 1px solid grey;
+  padding: 0.2rem;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add {
+  border: none;
+  background-color: purple;
+  color: #fff;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.add:hover {
+  transform: scale(1.1);
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tags-container h2 {
+  font-size: clamp(1rem, 3vw, 2rem);
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tags label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-inline: clamp(0.3rem, 1vw, 0.8rem);
+  padding-block: clamp(0.3rem, 1vw, 0.5rem);
+  gap: clamp(0.1rem, 1vw, 0.5rem);
+  border-radius: 2rem;
+  font-size: clamp(0.65rem, 2vw, 1rem);
+}
+
+.tags input {
+  display: none;
+}
+
+.tags input:checked + label {
+  background-color: #f0e9e9;
+}
+
+.icon {
+  width: clamp(1rem, 3vw, 5rem);
+}
+
+.icon svg {
+  width: 100%;
+  height: auto;
+}
+
+.invalid input,
+.invalid textarea {
+  background-color: #f53c3c85;
+}
+
+@media (min-width: 520px) {
+  .container {
+    left: 10%;
+    right: 10%;
+  }
+
+  .form {
+    width: 90%;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 620px) {
+  .container {
+    left: 20%;
+    right: 20%;
+  }
+}
+
+@media (max-height: 460px) {
+  .container {
+    height: 90%;
+    overflow: scroll;
+  }
+}

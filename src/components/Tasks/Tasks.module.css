@@ -1,0 +1,18 @@
+.tasks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 730px) {
+  .tasks {
+    flex-direction: row;
+    flex-grow: 1;
+  }
+}
+
+/* @media (min-width: 950px) {
+  .tasks {
+    flex-direction: row;
+  }
+} */

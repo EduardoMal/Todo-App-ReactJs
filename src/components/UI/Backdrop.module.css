@@ -1,0 +1,41 @@
+.backdrop {
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 4;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cancel {
+  background-color: #ff2058;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel:hover,
+.cancel:active {
+  background-color: #ff4b7d;
+  transform: scale(1.1);
+}
+
+.confirm {
+  background-color: transparent;
+  color: white;
+  border: none;
+}

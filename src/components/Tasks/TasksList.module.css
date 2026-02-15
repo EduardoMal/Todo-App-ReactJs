@@ -1,0 +1,14 @@
+.tasksSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  padding-inline: 10rem;
+}
+
+.tasks {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

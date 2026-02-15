@@ -1,0 +1,47 @@
+.group {
+  width: fit-content;
+}
+
+.group a {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 5%;
+  padding-block: 0.2rem;
+  text-wrap: nowrap;
+  border-radius: 5rem;
+  color: unset;
+  font-size: 1rem;
+}
+
+@media (min-width: 620px) {
+  .group {
+    width: 100%;
+  }
+
+  .group a {
+    justify-content: flex-start;
+  }
+}
+
+.icon {
+  width: 50%;
+  border-radius: 50%;
+}
+
+.icon svg {
+  width: 100%;
+}
+
+.group .active {
+  background-color: #c4c4c4a2;
+}
+
+.title {
+  width: auto;
+}
+/*#ffe4c4*/

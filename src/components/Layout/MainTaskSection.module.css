@@ -1,0 +1,14 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+/* @media (min-width: 620px) {
+  .section {
+    width: 50%;
+  }
+} */

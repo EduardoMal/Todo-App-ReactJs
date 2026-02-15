@@ -1,0 +1,69 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1%;
+  background-color: #407ff3;
+  color: #eee;
+  padding: 1rem;
+  box-shadow: 1px 1px 1px 1px #27457e;
+}
+
+.icon {
+  flex-shrink: 1;
+}
+
+.icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 60%;
+}
+
+.details header {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.checkbox {
+  height: 1.5rem;
+  flex-shrink: 1;
+  width: 1.5rem;
+}
+
+.checkbox input[type="checkbox"] {
+  height: 100%;
+  width: 100%;
+}
+
+.details footer {
+  font-size: 0.8rem;
+}
+
+.overdue .details header,
+.overdue .details footer {
+  color: #eb4343;
+}
+
+.link a {
+  text-decoration: none;
+  color: #eee;
+  background-color: #27457e;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px #1b2a4b;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-wrap: nowrap;
+}
+
+.link a:hover {
+  background-color: #1b2a4b;
+}
