@@ -3,7 +3,6 @@ import TasksStore from "../../store/tasks-store";
 import ErrorModal from "../UI/ErrorModal";
 import Overlay from "../UI/Overlay";
 import {
-  API_KEY,
   SIGN_IN_URL,
   SIGN_UP_URL,
   DATABASE_URL,
@@ -17,6 +16,8 @@ const AuthForm = function (props) {
   const [isOpenBackdrop, setIsOpenBackdrop] = useState(false);
   const tasksCtx = useContext(TasksStore);
   const [error, setError] = useState(null);
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   const url = `${DATABASE_URL}/${tasksCtx.profile.userID}/tasks.json?auth=${tasksCtx.token}`;
 
   useGETMethod(url);
@@ -59,9 +60,8 @@ const AuthForm = function (props) {
           },
         });
 
-        setIsLoading(false);
-
         if (!response.ok) {
+          setIsLoading(false);
           const data = await response.json();
           let errorMessage;
           if (data && data.error.message) {
@@ -72,6 +72,7 @@ const AuthForm = function (props) {
             throw new Error(errorMessage);
           }
         } else {
+          setIsLoading(false);
           const data = await response.json();
           const expirationTime = new Date(
             new Date().getTime() + +data.expiresIn * 1000,
@@ -90,7 +91,6 @@ const AuthForm = function (props) {
     };
 
     sendRequest();
-    setIsLoading(false);
   };
 
   if (error) {

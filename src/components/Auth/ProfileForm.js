@@ -1,6 +1,6 @@
 import { useContext, useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { UPDATE_URL, API_KEY } from "../../utils/config/config";
+import { UPDATE_URL } from "../../utils/config/config";
 import TasksStore from "../../store/tasks-store";
 import ErrorModal from "../UI/ErrorModal";
 import Overlay from "../UI/Overlay";
@@ -10,6 +10,7 @@ const ProfileForm = function () {
   const tasksCtx = useContext(TasksStore);
   const [err, setErr] = useState(null);
   const navigate = useNavigate();
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const [enteredName, setEnteredName] = useState("");
 

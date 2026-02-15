@@ -22,12 +22,9 @@ const SIGN_IN_URL =
 const PASSWORD_CHANGE_URL =
   "https://identitytoolkit.googleapis.com/v1/accounts:update?key=";
 
-const API_KEY = "AIzaSyAh154QbwCct5n7cfgcQdgAv4wVLh3xqbg";
-
 export {
   ICON_COLORS,
   DATABASE_URL,
-  API_KEY,
   UPDATE_URL,
   USER_PROFILE_DATA_URL,
   SIGN_UP_URL,

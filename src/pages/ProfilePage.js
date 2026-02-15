@@ -3,12 +3,13 @@ import Profile from "../components/Auth/Profile";
 import TasksStore from "../store/tasks-store";
 import Overlay from "../components/UI/Overlay";
 import ErrorModal from "../components/UI/ErrorModal";
-import { USER_PROFILE_DATA_URL, API_KEY } from "../utils/config/config";
+import { USER_PROFILE_DATA_URL } from "../utils/config/config";
 
 const ProfilePage = function () {
   const [err, setErr] = useState(null);
   const tasksCtx = useContext(TasksStore);
   const { token, updateProfile } = tasksCtx;
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     (async () => {
@@ -38,7 +39,7 @@ const ProfilePage = function () {
         });
       }
     })();
-  }, [token, updateProfile]);
+  }, [token, updateProfile, API_KEY]);
 
   if (err) {
     return (

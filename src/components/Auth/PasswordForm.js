@@ -2,7 +2,7 @@ import { useRef, useContext, useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import TasksStore from "../../store/tasks-store";
 import ErrorModal from "../UI/ErrorModal";
-import { PASSWORD_CHANGE_URL, API_KEY } from "../../utils/config/config";
+import { PASSWORD_CHANGE_URL } from "../../utils/config/config";
 import styles from "./ProfileForm.module.css";
 import Overlay from "../UI/Overlay";
 
@@ -11,6 +11,7 @@ const PasswordForm = function () {
   const navigate = useNavigate();
   const tasksCtx = useContext(TasksStore);
   const passwordRef = useRef();
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const cancelHandler = () => {
     navigate("/profile", { replace: true });
