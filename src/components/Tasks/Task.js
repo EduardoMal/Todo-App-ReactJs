@@ -1,12 +1,39 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { calcRemainingTime } from "../../utils/helpers/calculate";
 import styles from "./Task.module.css";
 
 const Task = function (props) {
-  const { id } = props;
+  const { id, date, time, title, group } = props;
+  const location = useLocation();
 
   const checkboxChangeHandler = (e) => {
     props.onChecked(id, e.target.checked);
   };
+
+  useEffect(() => {
+    const remainingTime = calcRemainingTime(date + " " + time);
+    if (remainingTime >= 0) {
+      (async () => {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          // const notificationReg =
+          //   await navigator.serviceWorker.getRegistration();
+          if (navigator.serviceWorker.controller) {
+            setTimeout(() => {
+              navigator.serviceWorker.controller.postMessage({
+                title,
+                body: "Task is due.",
+                icon: "/icon.svg",
+                data: { tag: group },
+                url: `${location.pathname}`,
+              });
+            }, remainingTime);
+          }
+        }
+      })();
+    }
+  }, [date, time, title, location, group]);
 
   return (
     <li

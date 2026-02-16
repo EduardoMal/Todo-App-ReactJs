@@ -6,6 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import TasksStoreProvider from "./store/TasksStoreProvider";
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then((reg) => console.log("registered"))
+    .catch((err) => console.log(err));
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

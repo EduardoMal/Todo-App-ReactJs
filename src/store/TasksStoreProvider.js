@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useReducer } from "react";
 import TasksStore from "../store/tasks-store";
 import { calcRemainingTime } from "../utils/helpers/calculate";
-import { createNotification } from "../utils/api/notification";
 
 let logoutTimer,
   taskTimers = {};
@@ -89,13 +88,6 @@ const tasksReducer = (state, action) => {
     return { ...state, profile: { ...state.profile, ...action.value.data } };
   }
 
-  if (action.type === "NOTIFICATION_PERMISSION") {
-    return {
-      ...state,
-      notificationPermission: action.value.permission,
-    };
-  }
-
   return {
     profile: { displayName: "", email: "", photoUrl: "", userID: "" },
     token: "",
@@ -144,13 +136,6 @@ const TasksStoreProvider = function (props) {
     indicator: false,
     notificationPermission: "default",
   });
-
-  const notificationPermissionHandler = () => {
-    (async () => {
-      let permission = await Notification.requestPermission();
-      dispatchTasks({ type: "NOTIFICATION_PERMISSION", value: { permission } });
-    })();
-  };
 
   const addTaskHandler = (task) => {
     dispatchTasks({ type: "ADD", value: { task } });
@@ -212,13 +197,6 @@ const TasksStoreProvider = function (props) {
       taskTimers[task.id] = setTimeout(() => {
         dispatchTasks({ type: "TRIGGER" });
       }, notificationTime + 2000);
-      if (tasks.notificationPermission === "granted") {
-        setTimeout(() => createNotification(task), notificationTime);
-      } else if (tasks.notificationPermission !== "denied") {
-        notificationPermissionHandler();
-      } else {
-        return;
-      }
     });
 
   return (
@@ -237,7 +215,6 @@ const TasksStoreProvider = function (props) {
         login: loginHandler,
         logout: logoutHandler,
         updateProfile: profileUpdateHandler,
-        requestNotificationPermission: notificationPermissionHandler,
       }}
     >
       {props.children}

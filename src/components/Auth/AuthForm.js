@@ -82,7 +82,6 @@ const AuthForm = function (props) {
             email: data.email,
             userID: data.localId,
           });
-          tasksCtx.requestNotificationPermission();
         }
       } catch (error) {
         setIsOpenBackdrop(true);
