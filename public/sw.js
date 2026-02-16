@@ -22,7 +22,7 @@ self.addEventListener("message", (e) => {
     ],
   };
 
-  self.registration.showNotification(title, options);
+  e.waitUntil(self.registration.showNotification(title, options));
 });
 
 self.addEventListener("notificationclick", (e) => {
